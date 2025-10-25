@@ -14,9 +14,9 @@
     "scripts": ["./statdrawer.js"],
     "styles": ["./statdrawer.css"],
     "packs": [],
-    "url": "https://github.com/syl3r86/statdrawer",
-    "manifest": "https://raw.githubusercontent.com/syl3r86/statdrawer/master/module.json",
-    "download": "https://github.com/syl3r86/statdrawer/archive/master.zip",
+    "url": "https://github.com/Deastrom/statdrawer",
+    "manifest": "https://raw.githubusercontent.com/Deastrom/statdrawer/master/module.json",
+    "download": "https://github.com/Deastrom/statdrawer/archive/master.zip",
     "compatibility": {
         "minimum": "11",
         "verified": "13",
