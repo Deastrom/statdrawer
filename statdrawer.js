@@ -76,7 +76,7 @@ class StatDrawer extends Application {
                 let val = set[1].value + set[2].value + set[3].value
                 data[`system.abilities.${ability}.value`] = val;
             } else {
-                ui.notifications.warn("The Abilities could not be aplied.");
+                ui.notifications.warn("The Abilities could not be applied.");
                 break;
             }
         }
