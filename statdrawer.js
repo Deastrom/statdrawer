@@ -74,9 +74,9 @@ class StatDrawer extends Application {
 
             if (ability !== 'none' && set[1].value && set[2].value && set[3].value) {
                 let val = set[1].value + set[2].value + set[3].value
-                data[`data.abilities.${ability}.value`] = val;
+                data[`system.abilities.${ability}.value`] = val;
             } else {
-                ui.notifications.warn("The Abilities could not be aplied.");
+                ui.notifications.warn("The Abilities could not be applied.");
                 break;
             }
         }
@@ -214,22 +214,22 @@ class StatDrawer extends Application {
 
     async updateChatMessage() {
         let actor = game.actors.get(this.actorId);
-        let templateData = { resultDeck: this.resultDeck, name: actor.data.name}
+        let templateData = { resultDeck: this.resultDeck, name: actor.name}
         let template = "modules/statdrawer/templates/chatMessage.html";
         let messageContent = await renderTemplate(template, templateData);
 
         if (this.messageId === undefined) {
             let chatData = {
-                user: game.user._id,
+                user: game.user.id,
                 speaker: {
-                    actor: actor.data._id,
-                    token: actor.data.token,
-                    alias: actor.data.name
+                    actor: actor.id,
+                    token: actor.token,
+                    alias: actor.name
                 },
                 content: messageContent
             };
             let message = await ChatMessage.create(chatData, {});
-            this.messageId = message.data._id;
+            this.messageId = message.id;
         } else {
             let message = game.messages.get(this.messageId);
             message.update({ content: messageContent });
@@ -240,11 +240,11 @@ class StatDrawer extends Application {
 let statDrawer;
 
 Hooks.on('renderActorSheet', (app, html, data) => {
-    if (app.actor.data.type === 'npc') return;
+    if (app.actor.type === 'npc') return;
     if (statDrawer === undefined) {
         statDrawer = new StatDrawer();
     }
-    let actorId = data.actor._id;
+    let actorId = data.actor._id || data.actor.id;
     let openBtn = $(`<a class="open-stat-drawer"><i class="fas fa-layer-group"></i> StatDrawer</a>`);
     openBtn.click(ev => {
         statDrawer.openForActor(actorId);
