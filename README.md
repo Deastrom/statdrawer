@@ -1,6 +1,6 @@
 # Stat Drawer
 
-A module for Foundry VTT that lets you generate ablitiyscores for characters using the "Holy Grail" method as described [here](https://www.reddit.com/r/DnD/comments/c67dft/oc_another_character_stat_generation_method_i/)!
+A module for Foundry VTT that lets you generate ability scores for characters using the "Holy Grail" method as described [here](https://www.reddit.com/r/DnD/comments/c67dft/oc_another_character_stat_generation_method_i/)!
 
 **Compatible with FoundryVTT v11, v12, and v13**
 
